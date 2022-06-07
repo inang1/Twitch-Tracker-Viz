@@ -14,6 +14,45 @@ I may come back to this and make a Tableau version eventually when I decide to p
 ## Known Issues
  * The WordCloud feature only works in Python 3.7 or below due to the library being incompatible with more recent versions of Python. Due to this, the code has been commented out.
 
+## List of functions
+#### Day of Week Analysis Plots
+
+  1. ActiveDaysOfWeek(df)
+  2. HoursStreamedDaysOfWeek(df)
+  3. numActiveDaysByYear(df)
+  4. avgNumViewersDaysOfWeek(df)
+  5. avgNumFollowersDaysOfWeek(df)
+
+#### All Day of Week Plots
+  1. DayOfWeekViz(df)
+
+#### Month Analysis
+  1. HoursStreamedMonth(df)
+  2. avgCCVMonth(df)
+  3. followersMonth(df)
+
+#### All Month visualizations
+  1. monthViz(df)
+
+#### Wordcloud (currently does not work)
+  1. TitleWordCloud(df)
+
+#### Statistics
+  1. totalFollowers(df)
+  2. totalViews(df)
+  3. avgStreamTime(df)
+  4. totalDuration(df)
+  5. activeDaysPerWeek(df)
+  6. avgNumFollowersPerStream(df)
+  7. avgViewsPerStream(df)
+  8. avgFollowersGainedPerHour(df)
+  9. avgViewsPerHour(df)
+
+#### Stat Tables
+  1. variousMetrics(df)
+  2. perStreamMetrics(df)
+  3. perHourMetrics(df)
+
 ## Things to Do
 ### Python:
   1. Day of the Week Analysis:
@@ -26,7 +65,7 @@ I may come back to this and make a Tableau version eventually when I decide to p
       * Average Concurrent Viewers
       * Followers Gained
   4. Month Viz:
-    * A function to generate all Month plots at once
+    * Add labels to each bar like above
   5. Refactor code to be object oriented (every single function requires the dataframe to be an input, which looks awful)
   6. Reformat comments/change function naming to match conventions
 

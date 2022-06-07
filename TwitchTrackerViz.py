@@ -280,6 +280,56 @@ def followersMonth(df):
     plt.tight_layout()
     plt.show()
 
+def monthViz(df):
+    f, (ax1, ax2, ax3) = plt.subplots(3, 1, sharex=True, sharey=False)
+    f.set_figheight(10)
+    f.set_figwidth(10)
+
+    # Create new column containing just months and years
+    df['MonthYear'] = df['Date'].dt.strftime('%b-%Y')
+
+    # Get all unique Month Year combinations
+    allMonthYears = df.MonthYear.unique()
+
+    # Reverse allMonthYear list so it's ordered from oldest to most recent MonthYear
+    allMonthYears = allMonthYears[::-1]
+
+    # Initialize durations, avgCCV, and followers list
+    durations = []
+    avgCCV = []
+    followers = []
+
+    for monthyear in allMonthYears:
+        # Slice df to only have current Month Year combination
+        dfMY = df[df['MonthYear'] == monthyear]
+        durations.append(dfMY['Duration (hrs)'].sum())
+        numStreams = len(dfMY)
+        avgCCV.append(dfMY['avgCCV'].sum()/numStreams)
+        followers.append(dfMY['Followers'].sum())
+
+    #  Plot Durations
+    plt.subplot(3, 1, 1)
+    plt.bar(allMonthYears, durations, color = 'red')
+    plt.title('Total Hours Streamed per Month-Year')
+    plt.ylabel('Hours Streamed')
+
+    # Initialize plot
+    plt.subplot(3, 1, 2)
+    plt.bar(allMonthYears, avgCCV, color = 'darkseagreen')
+    plt.title('Average Concurrent Viewers per Month')
+    plt.ylabel('Average Concurrent Viewers')
+
+    plt.subplot(3, 1, 3)
+    plt.bar(allMonthYears, followers, color = 'dodgerblue')
+    plt.title('Followers Gained per Month')
+    plt.xlabel('Month-Year')
+    plt.xticks(rotation = 90)
+    plt.ylabel('Followers Gained')
+
+
+    plt.tight_layout()
+    plt.show()
+
 
 # Wordcloud library does not work--keep commented out unless working with Python 3.7 or below
 
@@ -427,7 +477,7 @@ if __name__ == '__main__':
     #followersMonth(df)
 
 # All Month visualizations
-    monthViz(df)
+    #monthViz(df)
 
 # Wordcloud (currently does not work)
     # TitleWordCloud(df)
