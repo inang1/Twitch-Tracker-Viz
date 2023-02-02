@@ -2,6 +2,8 @@
 
 Included in this repo are recreations of the Statistics page on Twitch Tracker, all made using the csv export from my Twitch Tracker Scraper. Two versions of the visualizations are available: one using Python and another using PowerBI.
 
+The code is messy, and needs to be organized/changed to match style guidelines, but I built this just to work on visualization skills, so please bear with me :)
+
 The data import must be in the following format (first column is an index column):
 
 
@@ -9,7 +11,7 @@ The data import must be in the following format (first column is an index column
 |-|----|----|----|----|----|----|----|----|----|
 |0|6/1/2022|00:53:00|Wednesday|2.5|64|85|-1|0|StreamTitle|
 
-I may come back to this and make a Tableau version eventually when I decide to practice Tableau more, but that's for future me. :)
+I may come back to this and make a Tableau version eventually when I decide to practice Tableau more, but that's for future me.
 
 ## Known Issues
  * The WordCloud feature only works in Python 3.7 or below due to the library being incompatible with more recent versions of Python. Due to this, the code has been commented out.
